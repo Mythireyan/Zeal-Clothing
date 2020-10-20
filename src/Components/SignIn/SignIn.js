@@ -10,23 +10,23 @@ class SignIn extends  React.Component{
 
 		this.state={
 			email:'',
-			password:'',
+			password:''
 		};
 	}
 
-	handleSubmit=(e)=>{
+	handleSubmit= async(e)=>{
 		e.preventDefault();
 		const {email,password} = this.state;
 
 		try{
-			auth.signInWithEmailAndPassword(email,password);
+			await auth.signInWithEmailAndPassword(email,password);
 			
 				this.setState({
 				email:'',
-				password:'',
-			})
-			window.location.reload();	
+				password:''
+			});
 		}catch(error){
+			alert('Incorrect Email or Password');
 			console.log(error)
 		}
 	} 
@@ -34,7 +34,7 @@ class SignIn extends  React.Component{
 	handleChange=(e)=>{
 		// console.log(e.target.value);
 		const {name, value} = e.target;
-		this.setState({[name]: value})
+		this.setState({[name]: value});
 	}
 
 	render(){
@@ -46,15 +46,15 @@ class SignIn extends  React.Component{
 				<form onSubmit={this.handleSubmit}>
 					
 					<FormInput 
-					onChange={this.handleChange} 
-					type="email" 
+					handleChange={this.handleChange} 
+					type='email'
 					name='email' 
 					value={this.state.email} 
 					label='Email' 
 					required/>
 					<FormInput 
-					onChange={this.handleChange} 
-					type="password" 
+					handleChange={this.handleChange} 
+					type='password'
 					name='password' 
 					value={this.state.password} 
 					label='Password' 
