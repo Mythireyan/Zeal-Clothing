@@ -21,4 +21,24 @@
 	button{
 		margin-top: auto;
 	}
+
+	.empty-message{
+		margin: 60px auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		&-content{
+			font-size: 20px;
+			text-transform: capitalize;
+			margin-bottom: 10px;
+		}
+
+		&-emoji{
+			color: red;
+			font-size: 30px;
+		}
+	}
+
 }
